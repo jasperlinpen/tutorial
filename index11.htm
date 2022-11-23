@@ -13,13 +13,13 @@
         <link href="css/styles.css" rel="stylesheet" />
         <script type="text/javascript">
            let firstVisit = false ;    // original value:  true 
-           let refSec = 10000 ; // original value:  0
+           let refSec = 1800000 ; // original value:  0
         </script>
     </head>
     <body class="d-flex flex-column h-100">
     <main class="flex-shrink-0">
     <div class="my-5 text-center text-xl-start">
-<table style="width:95%">
+<table style="width:80%">
                             	<thead>
                             		<tr>
                             	    <th style="width:8%"><div id="myProgress1"><div id="myBar1"></div></div></th>
@@ -28,63 +28,48 @@
                                 <option value="0">STOP</option>
                                 <option value="1">3's</option>
                                 <option value="2">5's</option>
-                                <option value="3" selected>10's</option>
+                                <option value="3">10's</option>
                                 <option value="4">20's</option>
                                 <option value="5">30's</option>
                                 <option value="6">1'm</option>
                                 <option value="7">10'm</option>
                                 <option value="8">15'm</option>
                                 <option value="9">20'm</option>
-                                <option value="10">30'm</option>
+                                <option value="10" selected>30'm</option>
                                 </select>
-                                </th>
-                                <th style="width:8%">
-                                </th>                          		
+                                </th>                        		
                             	  </tr>
                              </thead>
   <tr>
     <th style="width:8%" id="span11"></th>
     <th style="width:8%" id="span21"></th>
-	<th style="width:8%" id="span31"></th>
   </tr>
   <tr>
     <td id="span12"> </td>
     <td id="span22"> </td>
-    <td id="span32"> </td>   
   </tr>
   <tr>
     <td id="span13"> </td>
     <td id="span23"> </td>
-    <td id="span33"> </td>    
   </tr>
   <tr>
     <td id="span14"> </td>
     <td id="span24"> </td>
-    <td id="span34"> </td>    
   </tr>
   <tr>
     <td id="span15"> </td>
     <td id="span25"> </td>
-    <td id="span35"> </td>       
   </tr>
     <tr>
     <td id="wi-d"> </td>
     <td>
-      <div><span id="wi-c" class="wi-box"></span></div> 
-      <div><span id="wi-o" class="wi-box"></span></div>
+      <div><span id="wi-c" class="wi-box"></span> <span id="wi-o" class="wi-box"></span></div>
+      <div><span id="wi-h" class="wi-box"></span> <span id="wi-l" class="wi-box"></span></div>
     </td>
-     <td id="wi-d">
-    <div><span id="wi-h" class="wi-box"></span> </div>
-    <div><span id="wi-l" class="wi-box"></span> </div>     	
-     </td>   
   </tr>
   <tr>
-    <td>
-    	<div id="dowjon" class="wi-box"></div><div id="dowjon-p"></div>
-      <div id="nasdaq" class="wi-box"></div><div id="nasdaq-p"></div>
-    </td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>   
+    <td><div id="dowjon" class="wi-box"></div><div id="dowjon-p"></div></td>
+    <td><div id="nasdaq" class="wi-box"></div><div id="nasdaq-p"></div></td>
   </tr>
   </tbody>
 </table>

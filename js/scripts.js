@@ -189,7 +189,7 @@
                  });
                 });     
                      
-              //  Another stock section   
+              //  2nd stock section  
                  $.getJSON('https://ws.api.cnyes.com/ws/api/v1/charting/history?resolution=1&symbol=TWS:2324:STOCK&quote=1',function(data){
                     // console.log('success');
                   $.each(data,function(key11,item11){
@@ -253,7 +253,72 @@
                   }
                  });
                 });    
-              //  Ending another stock section 
+            //  Ending 2nd stock section 
+            //  3rd stock section   
+                 $.getJSON('https://ws.api.cnyes.com/ws/api/v1/charting/history?resolution=1&symbol=TWS:1102:STOCK&quote=1',function(data){
+                    // console.log('success');
+                  $.each(data,function(key11,item11){
+                     if (key11 === 'data') {
+                   	//  $('ul').append('<li>'+item1+'</li>');                   	
+                    var itemData11 = item11; 	          
+                    $.each(itemData11,function(key21,item21){
+                    	if (key21  === 'quote' ) {
+                    		  var itemData21 = item21;
+                    		 // console.log(itemData21); 	
+                    		  $.each(itemData21,function(key31,item31){  
+                             if (key31 === '200009') {
+                 	              $("#span31").html(item31); 	
+                             }
+                             if (key31 === '6') {
+                 	              $("#span32").html(item31); 
+                             }
+                             if (key31 === '11') {
+                             	  if (item31> 0) 
+                             	      {
+                             	       	$("#span32").addClass("risePrice"); 
+                             	       	$("#span33").addClass("risePrice"); 
+                             	       // $("#span13").html("???" +???item3); 	
+                             	      } 
+                             	  else {
+                             	  	 if (item31 === 0){ 
+                             	  	 	  $("#span32").addClass("flatPrice"); 
+                             	        $("#span33").addClass("flatPrice"); 		
+                             	  	 }
+                             	  	 else {
+                             	  	 	 $("#span32").addClass("fellPrice"); 
+                             	       $("#span33").addClass("fellPrice"); 	
+                             	  	 }
+                             	  }
+                             	  $("#span33").html(item31); 
+                             } 
+                             if (key31 === '12') {
+                 	               $("#span34").html(item31); 
+                             }
+                             if (key31 === '13') {
+                 	               $("#span35").html(item31); 
+                             } 
+                        }) ;                 		
+                    	}
+                     });
+                   //  console.log(item1[0]);
+                       if ($("#span34").html() >= $("#span32").html() - $("#span33").html())
+                          {
+                       	    $("#span34").addClass("highestPrice");
+                          }  
+                       else {
+                       	  $("#span34").addClass("lowestPrice");
+                          }
+                       if ($("#span35").html() >= $("#span32").html() - $("#span33").html())
+                          {
+                       	  $("#span35").addClass("highestPrice");
+                          }  
+                       else {
+                       	  $("#span35").addClass("lowestPrice");
+                       }                  
+                  }
+                 });
+                });    
+              //  Ending 3rd stock section               
               //  Weighed index  section   
                  $.getJSON('https://ws.api.cnyes.com/ws/api/v1/charting/history?symbol=TWS:TSE01:INDEX&resolution=D&quote=1&from=NaN&to=NaN',function(data){
                     // console.log('success');
@@ -263,16 +328,16 @@
                     var itemData11 = item11; 	          
                     $.each(itemData11,function(key21,item21){
                       if (key21  === 'o' ){
-                    	   $("#wi-o").html('開:' + item21); 
+                    	   $("#wi-o").html(item21 + 'O' ); 
                       	}
                     	if (key21  === 'h' ){
-                    	   $("#wi-h").html('高:' +item21); 
+                    	   $("#wi-h").html(item21 + 'H' ); 
                     	 	}
                     	if (key21  === 'l' ){
-                    	   $("#wi-l").html('低:' + item21); 
+                    	   $("#wi-l").html(item21 + 'L'); 
                     	 	}
                     	if (key21  === 'c' ){
-                    	   $("#wi-c").html('收:' + item21);                     	                   	 	
+                    	   $("#wi-c").html(item21 + 'C' );                     	                   	 	
                     	}
                     	
                     	if (key21  === 'quote' ) {
@@ -346,7 +411,7 @@
                  	           itemDataTemp = item3 ;
                  	            }
                     		  	if (key3 === '200009') {
-                    		  		  $("#dowjon").html(item3 + itemDataTemp );
+                    		  		  $("#dowjon").html(item3 + '<BR>' + itemDataTemp );
                              }   
                              if (key3 === '11') {
                  	              $("#dowjon-p").html(item3);                             	
@@ -374,7 +439,7 @@
                  	              itemDataTemp = item3 ;
                  	            }
                     		  	if (key3 === '200009') {
-                    		  		  $("#nasdaq").html(item3 + itemDataTemp );
+                    		  		  $("#nasdaq").html(item3 + '<BR>' + itemDataTemp );
                              }   
                             if (key3 === '11') {
                   	            $("#nasdaq-p").html(item3);                              	
